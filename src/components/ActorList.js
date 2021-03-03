@@ -1,13 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import { Card, Grid } from "semantic-ui-react";
 
 export const ActorList = (props) => {
   return (
     <div>
-      <Grid stackable columns={3}>
-        {movies.movieList.map((movie) => (
-          <MovieCard key={movie._id} deleteMovie={deleteMovie} movie={movie} />
+      <Grid stackable columns={4}>
+        {props.actors.map((actor, key) => (
+          <Grid.Column key={key}>
+            <Card>
+              <Card
+                image={actor.photo}
+                header={actor.name}
+                extra={actor.description}
+              />
+            </Card>
+          </Grid.Column>
         ))}
       </Grid>
     </div>
@@ -15,11 +23,7 @@ export const ActorList = (props) => {
 };
 
 ActorList.propTypes = {
-  props: PropTypes,
+  actors: PropTypes.array.isRequired,
 };
 
-const mapStateToProps = (state) => ({});
-
-const mapDispatchToProps = {};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ActorList);
+export default ActorList;
