@@ -5,7 +5,7 @@ import {Grid} from 'semantic-ui-react';
 import CircleLoader from "react-spinners/CircleLoader";
 
 
-const MoviesList = ({ movies }) => {
+const MoviesList = ({ movies, deleteMovie }) => {
   const emptyMessage = <p> There are no movies yet.</p>;
   const moviesList = (
     <div>
@@ -15,7 +15,12 @@ const MoviesList = ({ movies }) => {
         <h3>ERROR RETRIEVING DATA!</h3>
       ) : (
         <Grid stackable columns={3}>
-        {movies.movieList.map((movie) => <MovieCard key = {movie._id} movie = {movie}/>)}
+        {movies.movieList.map((movie) => 
+          <MovieCard 
+          key = {movie._id} 
+          deleteMovie = {deleteMovie}
+          movie = {movie}
+          />)}
         </Grid>
       )}
     </div>

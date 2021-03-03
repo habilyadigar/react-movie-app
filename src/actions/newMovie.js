@@ -9,6 +9,10 @@ export const FETCH_MOVIE_PENDING = 'FETCH_MOVIE_PENDING'
 export const FETCH_MOVIE_FULFILLED = "FETCH_MOVIE_FULFILLED"
 export const FETCH_MOVIE_REJECTED = "FETCH_MOVIE_REJECTED"
 
+export const UPDATE_MOVIE_PENDING = 'UPDATE_MOVIE_PENDING'
+export const UPDATE_MOVIE_FULFILLED = "UPDATE_MOVIE_FULFILLED"
+export const UPDATE_MOVIE_REJECTED = "UPDATE_MOVIE_REJECTED"
+
 export function onNewMovieSubmit({title, pic}){
     return  dispatch => {
         dispatch({
@@ -19,6 +23,18 @@ export function onNewMovieSubmit({title, pic}){
             })
         });
     }
+}
+
+export function onUpdateMovieSubmit({_id, title, pic}){
+  return  dispatch => {
+      dispatch({
+          type: "NEW_MOVIE",
+          payload: axios.put(`${API_BASE}/movies/${_id}`,{
+              title,
+              pic
+          })
+      });
+  }
 }
 
 export function fetchMovie(id){

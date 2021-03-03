@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import NewMovieForm from '../NewMovieForm';
 import { connect } from 'react-redux';
 import {
-    onNewMovieSubmit, 
+    onNewMovieSubmit,
+    onUpdateMovieSubmit,
     fetchMovie
 } from '../../actions/newMovie';
 
@@ -24,6 +25,7 @@ class NewMoviePage extends Component {
                 movie={this.props.movie}
                 newMovie = {this.props.newMovie}
                 onNewMovieSubmit = {this.props.onNewMovieSubmit}
+                onUpdateMovieSubmit = {this.props.onUpdateMovieSubmit}
                 />
             </div>
         )
@@ -39,6 +41,7 @@ const mapStateToProps = ({newMovie, movies}, props) => {
 
 const mapDispatchToProps = {
     onNewMovieSubmit,
+    onUpdateMovieSubmit,
     fetchMovie
 };
 

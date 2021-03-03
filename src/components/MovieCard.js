@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Image, Grid, Button, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
-const extra = (movie) => {
+const extra = (movie, deleteMovie) => {
   return (
     <div className="ui two buttons">
       <Button animated as={Link} to={`/movies/${movie._id}`}>
@@ -11,7 +11,7 @@ const extra = (movie) => {
           <Icon name="arrow right" />
         </Button.Content>
       </Button>
-      <Button animated="vertical">
+      <Button animated="vertical" onClick={()=>deleteMovie(movie._id)}>
         <Button.Content hidden color="red">
           Delete
         </Button.Content>
@@ -23,7 +23,7 @@ const extra = (movie) => {
   );
 };
 
-const MovieCard = ({ movie }) => (
+const MovieCard = ({ movie, deleteMovie }) => (
   <Grid.Column>
     <Card>
       <Image src={movie.pic} wrapped ui={true} size="medium" />
@@ -39,7 +39,7 @@ const MovieCard = ({ movie }) => (
           {movie.director.name} {movie.director.surname}
         </Card.Description>
         <br></br>
-        <Card.Meta>{extra(movie)}</Card.Meta>
+        <Card.Meta>{extra(movie,deleteMovie)}</Card.Meta>
       </Card.Content>
     </Card>
   </Grid.Column>

@@ -6,9 +6,11 @@ import { Redirect } from "react-router-dom";
 
 export default class NewMovieForm extends Component {
   state = {
+    _id: this.props.movie ? this.props.movie._id : '',
     title: this.props.movie ? this.props.movie.title : '',
     pic: this.props.movie ? this.props.movie.pic : '',
     errors: {},
+    redirect : false,
   };
 
   static propTypes = {
@@ -36,10 +38,16 @@ export default class NewMovieForm extends Component {
     const errors = this.validate();
     this.setState({
       errors,
+      redirect : true,
     });
+
+    const _id = this.state._id || this.props.newMovie.movie._id;
     if (Object.keys(errors).length === 0) {
-      this.props.onNewMovieSubmit(this.state);
-    }
+      if (!_id)
+        this.props.onNewMovieSubmit(this.state);
+      else 
+        this.props.onUpdateMovieSubmit({...this.state, _id});  
+    } 
   };
 
   validate = () => {
@@ -91,7 +99,8 @@ export default class NewMovieForm extends Component {
     return (
     <div>
       {
-        this.props.newMovie.done ? <Redirect to = "/movies"/> : form  
+        this.props.newMovie.done && this.state.redirect 
+        ? <Redirect to = "/movies"/> : form  
       }
     </div>
     );
