@@ -15,7 +15,7 @@ const MoviesList = ({ movies }) => {
         <h3>ERROR RETRIEVING DATA!</h3>
       ) : (
         <Grid stackable columns={3}>
-        {movies.movies.map((movie) => <MovieCard key = {movie._id} movie = {movie}/>)}
+        {movies.movieList.map((movie) => <MovieCard key = {movie._id} movie = {movie}/>)}
         </Grid>
       )}
     </div>
@@ -25,7 +25,7 @@ const MoviesList = ({ movies }) => {
 
 MoviesList.propTypes = {
   movies: PropTypes.shape({
-    movies: PropTypes.array.isRequired,
+    movieList: PropTypes.array.isRequired,
   }).isRequired,
 };
 

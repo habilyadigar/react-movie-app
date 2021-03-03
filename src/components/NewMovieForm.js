@@ -6,8 +6,8 @@ import { Redirect } from "react-router-dom";
 
 export default class NewMovieForm extends Component {
   state = {
-    title: "",
-    pic: "",
+    title: this.props.movie ? this.props.movie.title : '',
+    pic: this.props.movie ? this.props.movie.pic : '',
     errors: {},
   };
 
@@ -15,6 +15,17 @@ export default class NewMovieForm extends Component {
     onNewMovieSubmit: PropTypes.func.isRequired,
   };
 
+
+  UNSAFE_componentWillReceiveProps (nextProps) {
+    const { movie } = nextProps.newMovie;
+    if (movie.title && movie.title !== this.state.title) {
+        this.setState({
+          pic: movie.pic,
+          title: movie.title,
+        });
+      };
+    };
+  
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
@@ -41,7 +52,7 @@ export default class NewMovieForm extends Component {
   render() {
     const { errors } = this.state;
     const form = (
-      <Form onSubmit={this.onSubmit} loading={this.props.newMovie.fetching}>
+      <Form onSubmit={this.onSubmit} loading={this.props.newMovie.fetching || this.props.newMovie.movie.fetching}>
         <Form.Field error={!!errors.title}>
           <label>Movie Name</label>
           {errors.title && <InLineError message={errors.title} />}
