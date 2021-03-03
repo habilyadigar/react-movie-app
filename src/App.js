@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import "./App.css";
 import MoviesPage from "./components/pages/MoviesPage";
+import NewMoviePage from './components/pages/NewMoviePage';
 import { Route } from "react-router-dom";
 import 'semantic-ui-css/semantic.min.css';
 import {Container} from "semantic-ui-react";
 import Footer from './components/Footer';
 import Header from './components/Header';
+
 
 
 
@@ -17,10 +19,8 @@ class App extends Component {
         <Header/>
 
         <Container text>
-          <Route path="/movies" component={MoviesPage}></Route>
-
-          <hr/>
-
+          <Route exact path="/movies" component={MoviesPage}></Route>
+          <Route exact path="/movies/new" component={NewMoviePage}></Route>
         </Container>
         <Footer/>
       </div>
