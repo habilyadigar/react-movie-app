@@ -23,7 +23,7 @@ class MoviesPage extends Component {
       //console.log(this.props)
     return (
       <div>
-        <h1>Movies</h1>
+        <h1 className = "text-center" >Movies</h1>
         <MoviesList 
         deleteMovie = {this.props.deleteMovie}
         movies = {this.props.movies} 

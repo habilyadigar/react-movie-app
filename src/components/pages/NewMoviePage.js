@@ -11,8 +11,9 @@ import {
 class NewMoviePage extends Component {
     componentDidMount(){
       const {match} = this.props;
-      if (!this.props.movie && match.params._id) {
-          this.props.fetchMovie(match.params._id);
+      console.log(this.props)
+      if (!match.movie && match.params._id) {
+        this.props.fetchMovie(match.params._id);
       }
     };
     
@@ -33,10 +34,12 @@ class NewMoviePage extends Component {
 }
 
 const mapStateToProps = ({newMovie, movies}, props) => {
+    console.log()
     return {
         newMovie,
-        movie: movies.movieList.find(item => item._id === props.match.params._id)
+        movie: movies.movieList.find(item => item._id === props.match.params._id)       
     }
+    
 };
 
 const mapDispatchToProps = {

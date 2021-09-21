@@ -19,8 +19,12 @@ export default class HomePage extends Component {
             name: "Emma Stone",
             description: "Emily Jean 'Emma' Stone was born in Scottsdale, Arizona, to Krista (Yeager), a homemaker, and Jeffrey Charles Stone, a contracting company founder and CEO. She is of Swedish, German, and British Isles descent. Stone began acting as a child as a member of the Valley Youth Theatre in Phoenix, Arizona...",
             photo: "https://m.media-amazon.com/images/M/MV5BMjI4NjM1NDkyN15BMl5BanBnXkFtZTgwODgyNTY1MjE@._V1_UX140_CR0,0,140,209_AL_.jpg"
-
-        }
+        },
+        {  
+          name: "Charlize Theron",
+          description: "Charlize Theron was born in Benoni, a city in the greater Johannesburg area, in South Africa, the only child of Gerda Theron (née Maritz) and Charles Theron. She was raised on a farm outside the city. Theron is of Afrikaner (Dutch, with some French Huguenot and German) descent, and Afrikaner ...",
+          photo: "https://m.media-amazon.com/images/M/MV5BMTk5Mzc4ODU0Ml5BMl5BanBnXkFtZTcwNjU1NTI0Mw@@._V1_UY209_CR8,0,140,209_AL_.jpg"
+      }
     ]
     }
   render() {

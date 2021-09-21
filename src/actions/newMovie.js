@@ -17,7 +17,7 @@ export function onNewMovieSubmit({title, pic}){
     return  dispatch => {
         dispatch({
             type: "NEW_MOVIE",
-            payload: axios.post(`${API_BASE}/movies`,{
+            payload: axios.post(`${API_BASE}/movies/new`,{
                 title,
                 pic
             })
@@ -65,7 +65,3 @@ export function fetchMovie(id){
     }
 }
 
-
-/*axios.get(`${API_BASE}/movies/${id}`)
-            .then(result => result.data)
-            */

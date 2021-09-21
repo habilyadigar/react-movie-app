@@ -100,7 +100,7 @@ export default class NewMovieForm extends Component {
     <div>
       {
         this.props.newMovie.done && this.state.redirect 
-        ? <Redirect to = "/movies"/> : form  
+        ? <Redirect to = "/movies" /> : form  
       }
     </div>
     );
